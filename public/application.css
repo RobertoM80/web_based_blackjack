@@ -1,0 +1,56 @@
+.center {
+	text-align: center;
+}
+
+form#hit_form {
+	float: left;
+	margin-right: 10px; 
+}
+
+form#stay_form {
+	float: left;
+}
+
+.well {
+	background-color: #ADCEAD;
+	border: 1px solid #297CCF;
+	border-radius: 25px
+
+}
+
+img.display_card {
+	margin: 5px;
+	margin-right: 7px;
+	border: 2px solid #297CCF;
+	border-radius: 10px;
+	padding: 1px;
+	max-height: 150px
+}
+
+img.cover_card {
+	margin: 5px;
+	margin-right: 7px;
+	border: 2px solid #297CCF;
+	border-radius: 10px;
+	padding: 1px;
+	max-height: 150px
+}
+
+h5 {
+	color: #576B77;
+}
+
+#play_again {
+	background-color: rgba(41, 124, 207, 0.9);
+	border: 1px solid #297CCF;
+	position: fixed;
+	padding: 15px;
+	border-radius: 15px;
+	margin-left: 260px;
+	margin-top: -80px;
+	color: white;
+}
+
+#play_again #last_btn {
+	text-align: center;
+}
