@@ -2,7 +2,6 @@
 
 <h4 class='center'>Welcome <%= session[:player_name] %>.</h4>
 
-
 <div class="well">
 	<h5>Dealer's Cards</h6>
 	
@@ -13,7 +12,6 @@
 			<%= display_card(card) %>
 		<% end %>
 	<% end %>
-
 
     <% if @show_dealer_hit_button %>
     	<p>
