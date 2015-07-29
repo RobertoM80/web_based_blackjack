@@ -17,10 +17,11 @@ helpers do
     valid_card = cards.flatten.select {|card| card.length < 3}
     valid_card.each do |card|
       case 
-        when card.to_i != 0 then score += card.to_i
-        when card.to_i == 0 && card != "A" then score += 10 
-        when card == "A" && score <= 10 then score += 11
-        when card == "A" && score > 10 then score += 1
+      when card.to_i != 0 then score += card.to_i
+      when card.to_i == 0 && card != "A" then score += 10 
+      when card == "A" && score <= 10 then score += 11
+      when card == "A" && score > 10 then score += 1
+      when card == "A" && score > 21 then score += 1
       end
     end
     score
@@ -95,10 +96,10 @@ get '/game' do
 
   session[:player_cards] = []
   session[:dealer_cards] = []
-  session[:player_cards] << session[:deck].pop
-  session[:dealer_cards] << session[:deck].pop
-  session[:player_cards] << session[:deck].pop
-  session[:dealer_cards] << session[:deck].pop
+  2.times do
+    session[:player_cards] << session[:deck].pop
+    session[:dealer_cards] << session[:deck].pop
+  end
   
   player_total = calculate_total(session[:player_cards])
   dealer_total = calculate_total(session[:dealer_cards])
@@ -134,7 +135,8 @@ post '/game/player/stay' do
   redirect '/game/dealer'
 end
 
-get '/game/dealer' do 
+get '/game/dealer' do
+  @show_hit_or_stay_buttons = false 
   session[:turn] = 'Dealer'
   dealer_total = calculate_total(session[:dealer_cards])
 
